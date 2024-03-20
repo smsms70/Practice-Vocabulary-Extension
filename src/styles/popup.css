@@ -1,0 +1,22 @@
+#popup-container{
+  width: 100%;
+  height: 100%;
+  background-color: #000e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 100;
+  top: 0;
+}
+#content__popup{
+  background-color: #373737;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+#content__popup button{
+  padding: 4px;
+}

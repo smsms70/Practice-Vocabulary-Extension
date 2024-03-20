@@ -1,0 +1,78 @@
+#files-section{
+  position: absolute;
+  width: 80%;
+  min-height: 150px;
+  border: 1px solid #222;
+  top: 25px;
+  justify-self: center;
+  background-color: #373737;
+  box-shadow: 0 0 15px 25px #0002;
+  font-size: 16px;
+  z-index: 100;
+  left: 0; 
+  right: 0;
+}
+#files-box-container{
+  padding: 5px;
+}
+#adder-box__folder-section{
+  margin-top: 10px;
+  display: flex;
+}
+.folder-icon__folder-section{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -10;
+  color: #70707070;
+}
+.folder-icon__folder-section path{
+  height: 100%;
+  width: 100%;
+}
+#add-button__folder-section{
+  padding: 2px 5px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-content: center;
+}
+#add-button__folder-section svg{
+  /* height: 18px; */
+}
+
+
+/* Folder Box */
+#folder-box{
+  transition-duration: 100ms;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#text__folder-box{
+  flex-grow: 1;
+  text-indent: 5px;
+}
+#text__folder-box:hover{
+  background-color: #222;
+}
+
+
+#btns-container__folder-box{
+  display: inline-flex;
+  align-items: center;
+}
+
+#delete-btn__folder-box{
+  padding: 5px;
+  background-color: transparent;
+  display: inline-flex;
+  align-content: center;
+}
+#delete-btn__folder-box:hover{
+  background-color: #222;
+}
+#delete-btn__folder-box svg{
+  height: 18px;
+  fill: #aaa;
+}

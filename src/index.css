@@ -1,0 +1,214 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #141414;
+}
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  min-width: 320px;
+  border-radius: 5px;
+  font-size: 15px;
+}
+button{
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+button svg{
+  width: 20px;
+  height: 20px;
+}
+#App{
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+#main-container{
+  width: 320px;
+  /* max-height: 500px; */
+  background-color: #373737;
+  padding: 5px;
+  padding-top: 0px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+
+/* Buttons */
+#btns-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  width: 100%;
+  /* padding: 0 20px; */
+}
+#btns-container button{
+  background-color: #535353;
+}
+#btns-container button:hover{
+  background-color: #5e5e5e;
+}
+
+#section-btns-container{
+  display: flex;
+  gap: 5px;
+  height: 33px;
+}
+#section-btns-container button{
+  width: 100px;
+  height: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  transform: translate(1px, 1px);
+  z-index: 100;
+  padding: 10px;
+  font-weight: bold;
+  z-index: 50;
+  background-color: #222;
+  transition-duration: 200ms;
+}
+#section-btns-container button:nth-child(2){
+  transform: translate(-10px, 1px);
+}
+.active-btn{
+  background-color: #535353 !important;
+  z-index: 100 !important;
+}
+/* config header btns */
+#config-btns-container{
+  margin: 5px;
+  display: flex;
+  gap: 8px;
+}
+#config-btns-container button{
+  border-radius: 5px;
+}
+
+.IconBtn{
+  padding: 3px 5px;
+  display: flex;
+}
+
+
+/* DATA */
+.data-container{
+  background-color: #535353;
+  height: 100%;
+  min-height: 200px;
+  max-height: 420px;
+  box-shadow: 0px 4px 4px 3px #0004;
+  border: 1px solid #141414;
+  padding: 5px;
+  box-sizing: border-box;
+  display: none;
+  /* border-top: transparent; */
+}
+.visible{
+  display: flex;
+  flex-direction: column;
+}
+#data-container-1{
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+#data-container-1::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* SECTION 01 */
+.box-element{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px 0;
+  background-color: #373737;
+  border-radius: 5px;
+  margin: 2px 0;
+  position: relative;
+}
+.box-element span{
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  border-left: 1px solid #707070;
+}
+.box-element span:first-child{
+  border-left: 1px solid transparent;
+}
+.box-list{
+  text-align: center;
+}
+
+/* Element Btns */
+#show-config-btns{
+  cursor: pointer;
+  padding: 5px;
+  box-sizing: border-box;
+  margin-right: 5px;
+  position: relative;
+  border-radius: 5px;
+}
+#show-config-btns:hover:not(:has(.edit-box-element button:hover)) {
+  background-color: #141414;
+}
+.edit-box-element{
+  position: absolute;
+  right: -5px;
+  top: 90%;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  gap: 1px;
+  /* width: 120px; */
+  z-index: 100;
+  background-color: #141414;
+  border-radius: 5px;
+  
+}
+.edit-box-element button{
+  padding: 7px 35px;
+  background-color: #141414;
+  color: #fff;
+  /* color: #007CA4; */
+  display: flex;
+  width: 150px;
+  justify-content: space-between;
+}
+.edit-box-element button:hover{
+  background-color: #222;
+}
+
+/* Adder Box */
+#adder-box{
+  z-index: 50;
+  padding: 5px;
+}
+#adder-box input{
+  width: 50%;
+  border: none;
+  background-color: #222;
+  margin: 0 2px;
+}
+#adder-box input:focus{
+  outline: none;
+  border: 1px solid #707070;
+}
+#adder-box button{
+  background-color: #373737;
+  padding: 5px;
+  margin: 0 2px;
+  border: 1px solid #0004;
+}
+#delete-btn svg{
+  fill: #ce0000;
+}
+.hidden{
+  display: none !important;
+}
