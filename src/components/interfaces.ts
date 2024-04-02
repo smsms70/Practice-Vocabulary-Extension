@@ -34,7 +34,7 @@ export interface FilesExtructure {
   setIsVisibleSection: React.Dispatch<React.SetStateAction<boolean>>;
   btnRef?: React.RefObject<HTMLButtonElement>;
 }
-export interface FolderBox extends FilesExtructure{
+export interface FolderBoxInter extends FilesExtructure{
   obj: string;
   setFiles: React.Dispatch<React.SetStateAction<string[]>>;
   localStorageToArray: () => string[];

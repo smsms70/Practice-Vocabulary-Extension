@@ -140,6 +140,8 @@ export function Section01 ({Param, Param2, setParam, data, setData, boxRef}: Sec
     </section>
   )
 }
+
+
 //  SECTION 02
 export function Section02 ({data, setData}:DataInter) {
   const [showAnswers, setShowAnswers] = useState<boolean>(false);
@@ -169,7 +171,7 @@ export function Section02 ({data, setData}:DataInter) {
     submitAnswerHandler()
   }
   useEffect((): void => {
-    if (newArr.length === data.length && data.length > 0) {
+    if (data && newArr.length === data.length && data.length > 0) {
       setData(newArr)
       setNewArr([]);
       setEasyArr([]);
@@ -189,14 +191,14 @@ export function Section02 ({data, setData}:DataInter) {
     <>
     <section id="data-container-2" className="data-container visible">
       <div id="flashcard-word-container">
-        {data[index] ? 
+        {(data && data[index]) ? 
         (!showAnswers ? data[index].frase : data[index].meaning)
         : <span id="warning-message__flashcards-section">
           "Not data was found to display, go to the list section and add new boxes to set flashcards"
         </span>
         }
       </div>
-      {data[index] && 
+      {(data && data[index]) && 
       (!showAnswers ? 
       <div id="show-answers-btn-container">
         <button 

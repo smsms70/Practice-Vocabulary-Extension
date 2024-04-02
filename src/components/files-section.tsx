@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { AddBtn, Folder, TrashCan } from "../assets/icons.tsx";
-import { FilesExtructure, FolderBox } from "./interfaces.ts";
+import { FilesExtructure, FolderBoxInter } from "./interfaces.ts";
 
 import "../styles/files-section.css";
 
@@ -77,7 +77,7 @@ export function FilesSection ({setDataFolderName, isSectionVisible, setIsVisible
 }
 
 
-export function FolderBox ({obj, setDataFolderName, setIsVisibleSection, setFiles, localStorageToArray}: FolderBox) {
+export function FolderBox ({obj, setDataFolderName, setIsVisibleSection, setFiles, localStorageToArray}: FolderBoxInter) {
   const [edit, setEdit] = useState<boolean>(false);
   const [inputvalue, setInputValue] = useState<string>("")
 
