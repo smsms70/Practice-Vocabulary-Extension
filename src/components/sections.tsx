@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { SetStateBoolean, DataInter, DataObject } from "./interfaces";
 import { DataBoxElement, StrictModeDroppable } from "./section01";
 import { TrashCan, AddBtn, Folder } from "../assets/icons";
@@ -43,10 +43,13 @@ export function SectionHeader ({Param, Param2, setParam, setParam2, func, btnRef
 
 // SECTION 01-----
 interface Sec1 extends SetStateBoolean, DataInter {}
-export function Section01 ({Param, Param2, setParam, data, setData, boxRef}: Sec1) {
+export function Section01 ({Param, Param2, setParam, data, setData, boxRef, inputRef, func}: Sec1) {
   const [boxes, setBoxes] = useState(data);
   const [inputValue1, setInputValue1] = useState("");
   const [inputValue2, setInputValue2] = useState("");
+
+  const input2Ref = useRef<HTMLInputElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const cleanIputs = (): void => {
     setInputValue1("");
@@ -119,18 +122,29 @@ export function Section01 ({Param, Param2, setParam, data, setData, boxRef}: Sec
 
       <div className={`box-element ${Param ? "" : "hidden"}`} id="adder-box" ref={boxRef}>
         <input 
-        type="text" value={inputValue1}
+        type="text" value={inputValue1} ref={inputRef}
         onChange={(e: React.FormEvent<HTMLInputElement>): void => {
           setInputValue1(e.currentTarget.value);
+        }}
+        onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>): void => {
+          if (e.key === 'Enter') input2Ref.current?.focus();
         }}>
+          
         </input>
         <input 
-        type="text" value={inputValue2}
+        type="text" value={inputValue2} ref={input2Ref}
         onChange={(e: React.FormEvent<HTMLInputElement>): void => {
           setInputValue2(e.currentTarget.value);
+        }}
+        onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>): void => {
+          if (e.key === 'Enter' && inputValue1) {
+            buttonRef.current?.click();
+            func!();
+          }
         }}>
         </input>
-        <button className="IconBtn" onClick={addBoxHandler}>
+        <button className="IconBtn" ref={buttonRef} 
+        onClick={addBoxHandler}>
           <AddBtn/>
         </button>
         <button id="delete-btn" className="IconBtn" onClick={cleanIputs}>

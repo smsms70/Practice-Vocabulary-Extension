@@ -15,6 +15,7 @@ export function App() {
   const [filesSection, setFilesSection] = useState<boolean>(false);
   const adderBoxRef = useRef<HTMLDivElement>(null);
   const folderBtnRef = useRef<HTMLButtonElement>(null);
+  const input1Ref = useRef<HTMLInputElement>(null);
 
   useEffect((): void => {
     setData(localStorage.getItem(dataFolderName));
@@ -30,9 +31,10 @@ export function App() {
 
   const addItemHandler = (): void => {
     if (filesSection) return;
-    setAddBox(!addBox);
+    setAddBox(true);
     setTimeout(() => {
       adderBoxRef.current!.scrollIntoView({ behavior: "smooth"});
+      input1Ref.current?.focus();
     }, 30);
   }
   return (
@@ -53,7 +55,9 @@ export function App() {
           data={currentData}
           setData={setCurrentData}
           boxRef= {adderBoxRef}
-        /> : 
+          inputRef={input1Ref}
+          func= {addItemHandler}
+          /> : 
         <Section02
           data={currentData}
           setData={setCurrentData}

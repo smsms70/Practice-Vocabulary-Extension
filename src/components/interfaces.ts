@@ -7,6 +7,7 @@ export interface SetStateBoolean {
   setParam2?: React.Dispatch<React.SetStateAction<boolean>>;
   func?: () => void;
   btnRef?: React.RefObject<HTMLButtonElement>;
+  inputRef?: React.RefObject<HTMLInputElement>;
 }
 export interface DataObject {
   frase: string;
